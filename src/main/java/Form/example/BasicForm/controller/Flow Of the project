@@ -1,0 +1,44 @@
+ +------------------+      +-------------------+      +-------------------+      +--------------------+
+ |    User         | ---> |    Controller     | ---> |      Service      | ---> |     Repository     |
+ | (Submits Form)  |      |    Receives &     |      |    Business Logic |      |   Database Save    |
+ +------------------+      |   Creates Object  |      |       Applied     |      +--------------------+
+                           +-------------------+
+
+--->Explanation of the Code Workflow
+User Accesses Registration Form
+When a user navigates to /register, the showRegistrationForm method in UserController loads the register.html form.
+User Submits the Form
+When the form is submitted, the data (username, email, password) is passed as a User object to handleRegistration in UserController.
+Service Processes the User
+handleRegistration calls registerUser in UserService, which performs any business logic (e.g., checking for existing usernames) and saves the User to the database.
+Repository Saves to Database
+registerUser calls userRepository.save(user), which saves the user details to the database using JPA.
+Confirmation
+Once saved, the application redirects the user to a success page (e.g., /success).
+
+
+-->Flowchart: Spring Boot Registration Process
+User Submits Form
+Controller Receives Request
+Service Applies Business Logic
+Repository Saves Data to Database
+Let’s break it down:
+
+Flowchart Steps
+User - Starts by submitting registration details via a form.
+↓
+Controller Layer (e.g., UserController)
+Receives HTTP request and extracts form data.
+Creates User object and sends it to the service layer.
+↓
+Service Layer (e.g., UserService)
+Applies business rules (e.g., checks if user already exists).
+Passes User object to repository for database interaction.
+↓
+Repository Layer (e.g., UserRepository)
+Saves User object to the database using JPA.
+Returns a success/failure message to the service.
+↓
+Service Layer - Receives confirmation of database save and returns to controller.
+↓
+Controller Layer - Sends a success response to the user.
