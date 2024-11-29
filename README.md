@@ -30,3 +30,9 @@ MIT License
 
 ![role_based_access_flowchart](https://github.com/user-attachments/assets/3e6a335c-5910-456f-b418-b8ac6fdb789b)
 
+Clone the Repository:
+# How to run
+1. clone the repository
+git clone https://github.com/your-repo-link
+
+
